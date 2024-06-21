@@ -1,0 +1,35 @@
+/*
+
+   ПРИМЕР КАК ДЕЛАТЬ WEBP И AVIF ФОНЫ
+
+   .no-webplossy .sectionBanner,
+   .no-avif .sectionBanner {
+      background: transparent url(../img/png/bannerBg.png) 50% 50%/cover no-repeat;
+   }
+   .webplossy .sectionBanner{
+      background: transparent url(../img/webp/bannerBg.webp) 50% 50%/cover no-repeat;
+   }
+   .avif .sectionBanner {
+      background: transparent url(../img/avif/bannerBg.avif) 50% 50%/cover no-repeat;
+   }
+*/
+
+@import 'color.scss';
+@import 'fonts.scss';
+@import 'mixins.scss';
+
+body {
+   background: $primary-color-dark;
+}
+
+h1 {
+   color: $secondary-text-color;
+
+   // @include RubikRegular(16);
+
+   &:hover {
+      background: $primary-color-text;
+      cursor    : pointer;
+      border    : 1px solid $primary-color;
+   }
+}
