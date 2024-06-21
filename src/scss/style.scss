@@ -18,18 +18,127 @@
 @import 'fonts.scss';
 @import 'mixins.scss';
 
-body {
-   background: $primary-color-dark;
+* {
+   margin    : 0;
+   padding   : 0;
+   box-sizing: border-box;
 }
 
-h1 {
-   color: $secondary-text-color;
+body {
+   background: $primary-color-dark;
+   @include MontserratRegular(14);
+}
+.wrapper {
+   width: 1200px;
+   display: flex;
+   justify-content: center;
+   margin: 10px auto;
+}
+.cards_wrapper {
+   display: grid;
+   padding: 10px;
+   grid-template-columns: repeat(3, 1fr);
+   gap: 10px;
+   &_item {
+      
+      padding: 20px;
+      display: flex;
+      justify-content: space-between;
+      background-color: rgb(211, 211, 211);
+      border-radius: 5px;
+      border: 2px solid rgb(36, 121, 99);
+      &_img {
+         width: 200px;
+         height: 200px;
+         margin-right: 20px;
+      }
+      &_info {
+         display: flex;
+         flex-direction: column;
+         align-items: flex-start;
+         justify-content: flex-start;
+         width: 100%;
 
-   // @include RubikRegular(16);
-
-   &:hover {
-      background: $primary-color-text;
-      cursor    : pointer;
-      border    : 1px solid $primary-color;
+         span {
+            @include MontserratSemiBold(14)
+         }
+         &_name {
+            width: 100%;
+         }
+         &_username {
+            margin-bottom: 10px;
+            padding-bottom: 10px;
+            border-bottom: 1px solid rgb(36, 121, 99);
+            width: 100%;
+         }
+         &_email {
+            margin-bottom: 5px;
+            padding-bottom: 10px;
+            border-bottom: 1px solid rgb(36, 121, 99);
+            width: 100%;
+         }
+         &_adress {
+            margin-bottom: 5px;
+            padding-bottom: 10px;
+            border-bottom: 1px solid rgb(36, 121, 99);
+            width: 100%;
+            &_street {
+               
+            }
+            &_suite {
+               
+            }
+            &_city {
+               
+            }
+            &_zip {
+               
+            }
+         }
+         &_phone {
+            margin-bottom: 5px;
+            border-bottom: 1px solid rgb(36, 121, 99);
+            padding-bottom: 10px;
+            width: 100%;
+         }
+         &_site {
+            
+         }
+         &_characteristics {
+            width: 100%;
+            padding-top: 10px;
+            margin-bottom: 20px;
+            flex-grow: 1;
+            &_company {
+               
+            }
+            &_catch {
+               
+            }
+            &_bs {
+               
+            }
+         }
+         &_buttons {
+            display: flex;
+            
+            &_item {
+               @include MontserratSemiBold(14);
+               border: 1px solid rgb(36, 121, 99);;
+               padding: 5px;
+               border-radius: 5px;
+               display: flex;
+               justify-content: center;
+               align-items: center;
+               width: 80px;
+               
+               cursor: pointer;
+               margin-right: 10px;
+               &:last-child {
+                  margin-right: 0;
+               }
+            }
+         }
+      }
    }
 }
