@@ -49,6 +49,7 @@ gulp.task('copy', () => {
       .pipe(gulp.dest('./build/js'))
 })
 
+//Таск для конвертации шрифтов
 gulp.task('fontsConverter', () => {
    return gulp.src(['./src/fonts/*.ttf'])
       .pipe(ttf2woff())

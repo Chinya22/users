@@ -235,6 +235,7 @@ function createUser(user) {
   const cardsWrapper = document.querySelector(".cards_wrapper");
   const card = document.createElement("div");
   card.classList.add("cards_wrapper_item");
+  card.id = user.id;
 
   const img = document.createElement("img");
   img.src = "img/" + user.id + ".png";
@@ -360,6 +361,7 @@ function createUser(user) {
     "cards_wrapper_item_info_buttons_item",
     "modal_open"
   );
+  buttonEdit.id = user.id + "_btn";
 
   buttonEdit.innerText = "Edit";
   buttonsWrapper.append(buttonEdit);
@@ -385,11 +387,63 @@ fetch("https://jsonplaceholder.typicode.com/users")
     const modalOpen = document.querySelectorAll(".modal_open");
     const modal = document.getElementById("modal");
     const modalCLose = document.querySelector(".modal_content_close");
-    
+
     for (let i = 0; i < modalOpen.length; i++) {
-      console.log(modalCLose);
-      modalOpen[i].onclick = () => {
-       
+      modalOpen[i].onclick = (event) => {
+        const cardId = event.target.id.split("_")[0],
+          card = document.getElementById(cardId);
+        
+        card.querySelector(".cards_wrapper_item_info_name");
+        const name = card
+          .querySelector(".cards_wrapper_item_info_name")
+          .innerText.split(": ")[1];
+        document.getElementById('name').value = name;
+        const username = card
+          .querySelector(".cards_wrapper_item_info_username")
+          .innerText.split(": ")[1];
+        document.getElementById('username').value = username;
+        const email = card
+          .querySelector(".cards_wrapper_item_info_email")
+          .innerText.split(": ")[1];
+        document.getElementById('email').value = email;
+        const street = card
+          .querySelector(".cards_wrapper_item_info_adress_street")
+          .innerText.split(": ")[1];
+        document.getElementById('street').value = street;
+        const suite = card
+          .querySelector(".cards_wrapper_item_info_adress_suite")
+          .innerText.split(": ")[1];
+        document.getElementById('suite').value = suite;
+        const city = card
+          .querySelector(".cards_wrapper_item_info_adress_city")
+          .innerText.split(": ")[1];
+        document.getElementById('city').value = city;
+        const zip = card
+          .querySelector(".cards_wrapper_item_info_adress_zip")
+          .innerText.split(": ")[1];
+          
+        document.getElementById('zip').value = zip;
+        const phone = card
+          .querySelector(".cards_wrapper_item_info_phone")
+          .innerText.split(": ")[1];
+        document.getElementById('phone').value = phone;
+        const site = card
+          .querySelector(".cards_wrapper_item_info_site")
+          .innerText.split(": ")[1];
+        document.getElementById('site').value = site;
+        const company = card
+          .querySelector(".cards_wrapper_item_info_characteristics_company")
+          .innerText.split(": ")[1];
+        document.getElementById('company').value = company;
+        const prase = card
+          .querySelector(".cards_wrapper_item_info_characteristics_catch")
+          .innerText.split(": ")[1];
+        document.getElementById('prase').value = prase;
+        const BS = card
+          .querySelector(".cards_wrapper_item_info_characteristics_bs")
+          .innerText.split(": ")[1];
+        document.getElementById('BS').value = BS;
+  
         modal.classList.add("modal_active");
         modalCLose.addEventListener("click", closeModal);
         modal.addEventListener("click", hideModal);
@@ -397,7 +451,6 @@ fetch("https://jsonplaceholder.typicode.com/users")
     }
 
     function closeModal() {
-      console.log('gof')
       modal.classList.remove("modal_active");
       modalCLose.removeEventListener("click", closeModal);
       modal.removeEventListener("click", hideModal);
